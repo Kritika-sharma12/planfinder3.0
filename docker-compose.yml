@@ -1,0 +1,85 @@
+version: "3.8"
+services:
+  home: 
+    stdin_open: true
+    tty: true
+    image: home
+    deploy:
+        resources:
+            limits:
+              cpus: '0.50'
+              memory: 2048M
+            reservations:
+              cpus: '0.25'
+              memory: 1536M
+    build:
+      context: ./home
+      dockerfile: Dockerfile-home
+    container_name: home-container
+    ports:
+      - "3001:3001"
+    depends_on:
+      - filters
+      - mainContent
+      - store
+  filters: 
+    stdin_open: true
+    tty: true
+    image: filters
+    deploy:
+        resources:
+            limits:
+              cpus: '0.50'
+              memory: 2048M
+            reservations:
+              cpus: '0.25'
+              memory: 1536M
+    build:
+      context: ./filters
+      dockerfile: Dockerfile-filters
+    container_name: filters-container
+    ports:
+      - "3002:3002"
+    depends_on:
+      - store
+  maincontent:
+    stdin_open: true
+    tty: true
+    image: maincontent
+    deploy:
+        resources:
+            limits:
+              cpus: '0.50'
+              memory: 2048M
+            reservations:
+              cpus: '0.25'
+              memory: 1536M
+    build:
+      context: ./maincontent
+      dockerfile: Dockerfile-maincontent
+    container_name: maincontent-container
+    ports:
+      - "3003:3003"
+    depends_on:
+      - store
+  store:
+    stdin_open: true
+    tty: true
+    image: store
+    deploy:
+        resources:
+            limits:
+              cpus: '0.50'
+              memory: 2048M
+            reservations:
+              cpus: '0.25'
+              memory: 1536M
+    build:
+      context: ./store
+      dockerfile: Dockerfile-store
+    container_name: store-container
+    ports:
+      - "3004:3004"
+      
+
+  
