@@ -3,13 +3,16 @@ import ReactDOM from 'react-dom';
 import Paper from '@material-ui/core/Paper';
 import singleSpaReact from 'single-spa-react';
 import store from 'store/store';
+import { Button } from 'antd';
+import 'antd/dist/antd.css';
+import { Select,Space } from 'antd';
+import styles from './filters.module.scss';
 
 export default function  filters(){
-  
-  
+
       return ( 
           <>
-            <h1>Filters</h1>
+            <h1 >Filters</h1>
           </>
        );
   }

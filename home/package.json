@@ -3,35 +3,38 @@
     "version": "1.0.0",
     "description": "",
     "scripts": {
-      "start": "concurrently --kill-others \"webpack --watch\" \"serve dist -p 3001\"",
-      "build": "webpack --mode production",
-      "serve": "serve dist -p 3001"
+        "start": "concurrently --kill-others \"webpack --watch\" \"serve dist -p 3001\"",
+        "build": "webpack --mode production",
+        "serve": "serve dist -p 3001"
     },
     "devDependencies": {
-      "react": "^17.0.2",
-      "react-dom": "^17.0.2",
-      "@devexpress/dx-react-chart": "^2.7.6",
-      "@devexpress/dx-react-chart-material-ui": "^2.7.6",
-      "@devexpress/dx-react-core": "^2.7.6",
-      "@material-ui/core": "^4.12.3",
-      "html-webpack-plugin": "^5.5.0",
-      "serve": "^13.0.2",
-      "single-spa": "^5.9.3",
-      "single-spa-react": "^4.6.0",
-      "webpack": "^5.66.0",
-      "webpack-cli": "^4.9.1",
-      "@babel/core": "^7.16.7",
-      "@babel/preset-react": "^7.16.7",
-      "babel-loader": "^8.2.3",
-      "css-loader": "^6.5.1",
-      "style-loader": "^3.3.1",
-      "clean-webpack-plugin": "^4.0.0",
-      "concurrently": "^7.0.0",
-      "wsrun": "^5.2.4",
-      "yarn": "^1.22.17"
+        "@babel/core": "^7.16.7",
+        "@babel/preset-react": "^7.16.7",
+        "@devexpress/dx-react-chart": "^2.7.6",
+        "@devexpress/dx-react-chart-material-ui": "^2.7.6",
+        "@devexpress/dx-react-core": "^2.7.6",
+        "@material-ui/core": "^4.12.3",
+        "babel-loader": "^8.2.3",
+        "clean-webpack-plugin": "^4.0.0",
+        "concurrently": "^7.0.0",
+        "css-loader": "^6.5.1",
+        "html-webpack-plugin": "^5.5.0",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "sass": "^1.49.7",
+        "sass-loader": "^12.4.0",
+        "serve": "^13.0.2",
+        "single-spa": "^5.9.3",
+        "single-spa-react": "^4.6.0",
+        "style-loader": "^3.3.1",
+        "webpack": "^5.66.0",
+        "webpack-cli": "^4.9.1",
+        "wsrun": "^5.2.4",
+        "yarn": "^1.22.17"
     },
     "keywords": [],
     "author": "",
-    "license": "ISC"
-  }
-  
+    "license": "ISC",
+    "dependencies": {
+    }
+}
