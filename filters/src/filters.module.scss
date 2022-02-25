@@ -7,3 +7,15 @@
 .ant-typography {
     text-align: center !important;
 }
+:global{
+    .ant-menu-inline{
+        //Code
+        .ant-menu-item-group-list .ant-menu-submenu-title, .ant-menu-inline .ant-menu-submenu-title {
+            padding-right: 34px;
+            font-size: 14px ;
+            font-weight: 700;
+            color: #78338b;
+            border-bottom: 1px solid #ececec;
+        }
+    }
+}

@@ -7,8 +7,9 @@ import 'antd/dist/antd.css';
 import { Select,Space } from 'antd';
 import styles from './filters.module.scss';
 import "./index.css";
+import ThreeWayToggle from "./threeWayToggle";
 import FilterBoxSIngleSelect from "./filterBoxSIngleSelect";
-import { Card, Row, Col, Divider, Button,Slider, InputNumber, Switch,TreeSelect,Checkbox} from "antd";
+import { Card, Row, Col, Divider, Button,Slider, InputNumber, Switch,TreeSelect,Checkbox,Menu} from "antd";
 
 class IntegerStep extends React.Component {
     state = {
@@ -26,12 +27,12 @@ class IntegerStep extends React.Component {
       return (
           <>
         <Col span={24}>
-        <Row className=' quickfilter-row'>
-            <Slider style={{  width: 300 }} range defaultValue={[0, 100]} onChange={this.onChange}   />
+        <Row className=' quickfilter-row quick-filter-left' >
+            <Slider style={{  width: 245 }} range defaultValue={[0, 100]} onChange={this.onChange}   />
         </Row>
         <Row className='quickfilter-row'>
-            <Col span={12}>From <InputNumber min={0} max={100} style={{ margin: '0 16px' }} value={inputValue[0]} onChange={this.onChange} /></Col>
-            <Col span={12} className="quickfilter-checkbox">To<InputNumber className='quickfilter-inputbox'  min={0} max={100} style={{ margin: '0 16px' }} value={inputValue[1]} onChange={this.onChange} /></Col>
+            <Col span={12} style={{ fontSize: 13}}>From <InputNumber min={0} max={100} style={{ margin: '0 16px' }} value={inputValue[0]} onChange={this.onChange} /></Col>
+            <Col span={12} style={{ fontSize: 13}} className="quickfilter-checkbox">To<InputNumber className='quickfilter-inputbox'  min={0} max={100} style={{ margin: '0 16px' }} value={inputValue[1]} onChange={this.onChange} /></Col>
         </Row>
         </Col>
         </>
@@ -63,97 +64,59 @@ class IntegerStep extends React.Component {
       );
     }
   }
-
+const { SubMenu } = Menu;
 const quickfilters  = () => {
     const [currentValue, setCurrentValue] = useState(0)
     return (
       <>
        <Card hoverable className="quick-filter-top">
-       <Row>
-          <Col span={24} ><div className="quickfilter-title">Premium</div>
-          <Row>
-            <IntegerStep/>
-          </Row>
-          <Card style={{maxHeight: 200, overflow: 'auto'}} className='quickfilter-row'>
-          <Row className='quickfilter-row'>
-            <Col span={18}><div className="quickfilter-text">Plans with only part D premium</div></Col>
-            <Col span={6} className="quickfilter-checkbox" ><Checkbox  /></Col>
-          </Row>
-          <Row className='quickfilter-row'>
-            <Col span={18}><div className='quickfilter-text'>Plans without only part D premium</div></Col>
-            <Col span={6} className="quickfilter-checkbox"><Checkbox /></Col>
-          </Row>
-          <Row className='quickfilter-row'>
-            <Col span={18}><div className='quickfilter-text'>Plans with part B Giveback</div></Col>
-            <Col span={6} className="quickfilter-checkbox" ><Checkbox /></Col>
-          </Row>
-          <Row className='quickfilter-row'>
-            <Col span={18}><div className='quickfilter-text'>Plans without part B Giveback</div></Col>
-            <Col span={6} className="quickfilter-checkbox" ><Checkbox /></Col>
-          </Row>
-          <Row className='quickfilter-row'>
-            <Col span={18}><div className='quickfilter-text'>Provides health and drug coverage</div></Col>
-            <Col span={6} className="quickfilter-checkbox"><Checkbox /></Col>
-          </Row>
-          <Row className='quickfilter-row'>
-            <Col span={18}><div className='quickfilter-text'>Plans with partial dual</div></Col>
-            <Col span={6} className="quickfilter-checkbox"><Checkbox /></Col>
-          </Row>
-          <Row className='quickfilter-row'>
-            <Col span={18}><div className='quickfilter-text'>Plans without partial dual</div></Col>
-            <Col span={6} className="quickfilter-checkbox"><Checkbox /></Col>
-          </Row>
-          <Row className='quickfilter-row'>
-            <Col span={18}><div className='quickfilter-text'>Plan with full dual</div></Col>
-            <Col span={6} className="quickfilter-checkbox"><Checkbox /></Col>
-          </Row>
-          <Row className='quickfilter-row'>
-            <Col span={18}><div className='quickfilter-text'>Plan without full dual</div></Col>
-            <Col span={6} className="quickfilter-checkbox"><Checkbox /></Col>
-          </Row>
-          </Card>
-          </Col>
-          <hr/>
-       </Row>
-       <Row>
-       <Col span={24} ><div className="quickfilter-title quickfilter-row">Enrollment</div>
-          <Row className='quickfilter-row'>
-              <Col span={16}>Enrollment Month</Col>
-              <Col span={8} className="quickfilter-dropdown"><FilterBoxSIngleSelect /></Col>
-          </Row>
-          <Row className='quickfilter-row quickfilter-custom-div quickfilter-row'>
-            <Col span={4}>Enr Range</Col> 
-            <Col span={18}><SliderOnly/></Col>
-          </Row>
-          </Col>
-          <hr/>  
-       </Row>
-       <Row>
-        <Col span={24} ><div className="quickfilter-title">Health Deductible</div>
-          <Row className='quickfilter-row'>
-            <IntegerStep/>
-          </Row>
-        </Col>
-        <hr/>
-       </Row>
-       <Row>
-        <Col span={24} ><div className="quickfilter-title">Drug Deductible</div>
-          <Row className='quickfilter-row'>
-            <IntegerStep/>
-          </Row>
-        </Col>
-        <hr/>
-       </Row>
-       <Row>
-        <Col span={24} ><div className="quickfilter-title">MOOP</div>
-          <Row className='quickfilter-row'>
-            <IntegerStep/>
-          </Row>
-        </Col>
-        <hr/>
-       </Row>
-       <Row>
-        <Col span={24} ><div className="quickfilter-title">Benefits</div>
+       <Menu
+        style={{ width: 305 }}
+        defaultSelectedKeys={['1']}
+        defaultOpenKeys={['sub1']}
+        mode="inline"
+      >
+        <SubMenu key="sub1" title="Premium" className='premium'>
+          <Menu.Item key="1">
+          <Row><IntegerStep/></Row>
+            <ThreeWayToggle/>
+          </Menu.Item>
+        </SubMenu>
+        <SubMenu key="sub2" title="Enrollment" className='enrollment'>
+          <Menu.Item key="2">
+            <Row className='quickfilter-row'>
+              <Col span={14}>Enrollment Month</Col>
+              <Col span={10} className="quickfilter-dropdown"><FilterBoxSIngleSelect /></Col>
+            </Row>
+            <Row>Enr Range</Row>
+            <Row className='quickfilter-row quickfilter-custom-div quickfilter-row'>
+              <Col span={24}><SliderOnly/></Col>
+            </Row>
+          </Menu.Item>
+        </SubMenu>
+        <SubMenu key="sub3" title="Health Deductible" className='enrollment'>
+          <Menu.Item key="3">
+             <Row className='quickfilter-row'>
+               <IntegerStep/>
+             </Row>
+          </Menu.Item>
+        </SubMenu>
+        <SubMenu key="sub4" title="Drug Deductible" className='enrollment'>
+          <Menu.Item key="4">
+             <Row className='quickfilter-row'>
+               <IntegerStep/>
+             </Row>
+          </Menu.Item>
+        </SubMenu>
+        <SubMenu key="sub5" title="Moop Deductible" className='enrollment'>
+          <Menu.Item key="5">
+             <Row className='quickfilter-row'>
+               <IntegerStep/>
+             </Row>
+          </Menu.Item>
+        </SubMenu>
+        <SubMenu key="sub6" title="Benefits" className='benefits'>
+          <Menu.Item key="6">
           <Row className='quickfilter-row'>
             <Col span={18}><div className="quickfilter-text">Ambulance</div></Col>
             <Col span={6} className="quickfilter-checkbox" ><Checkbox  /></Col>
@@ -206,9 +169,9 @@ const quickfilters  = () => {
             <Col span={18}><div className='quickfilter-text'>Pers</div></Col>
             <Col span={6} className="quickfilter-checkbox"><Checkbox /></Col>
           </Row>
-        </Col>
-        <hr/>
-       </Row>
+          </Menu.Item>
+        </SubMenu>
+      </Menu>
        </Card>
       </>
     );

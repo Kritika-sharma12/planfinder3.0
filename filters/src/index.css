@@ -84,7 +84,7 @@ box-shadow: none !important;
 }
 .quick-filter-top{
   margin-top: 13px;
-  width: 26%;
+  width: 23%;
 }
 hr {
   box-sizing: content-box;
@@ -94,7 +94,7 @@ hr {
 }
 .quick-filter-top .ant-card-body
 {
-  padding: 20px !important;
+  padding: 5px !important;
 }
 .quickfilter-title{
     font-size: 22px;
@@ -112,6 +112,9 @@ margin-right: 0px !important;
 }
 .quickfilter-row{
   margin-bottom: 20px;
+}
+.quick-filter-left{
+  margin-left: 2px;
 }
 .ant-checkbox-inner {
   border: 2px solid #4b4747;
@@ -198,4 +201,63 @@ box-shadow: none;
 .quick-filter-top ::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background: #cecdcd;
+}
+.premium .ant-menu-sub.ant-menu-inline > .ant-menu-item, .ant-menu-sub.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
+  height: 500px;
+  padding-left: 20px !important;
+  width: 296px;
+}
+.enrollment .ant-menu-sub.ant-menu-inline > .ant-menu-item, .ant-menu-sub.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
+  height: 165px;
+  padding-left: 20px !important;
+  width: 296px;
+}
+.benefits .ant-menu-sub.ant-menu-inline > .ant-menu-item, .ant-menu-sub.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
+  height: 757px;
+  padding-left: 20px !important;
+  width: 296px;
+}
+.ant-menu-item-selected {
+  color: #9776a2;
+}
+
+.ant-menu-vertical .ant-menu-item::after, .ant-menu-vertical-left .ant-menu-item::after, .ant-menu-vertical-right .ant-menu-item::after, .ant-menu-inline .ant-menu-item::after {
+  border-right: none;
+}
+
+.ant-menu-submenu-selected {
+  color: #373737;;
+}
+
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: #fff;
+}
+
+.ant-menu-light .ant-menu-item:hover, .ant-menu-light .ant-menu-item-active, .ant-menu-light .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open, .ant-menu-light .ant-menu-submenu-active, .ant-menu-light .ant-menu-submenu-title:hover {
+  color: #78338b ;
+}
+
+.ant-menu-submenu:hover > .ant-menu-submenu-title > .ant-menu-submenu-expand-icon, .ant-menu-submenu:hover > .ant-menu-submenu-title > .ant-menu-submenu-arrow {
+  color: #9776a2;
+}
+.ant-menu-item:active, .ant-menu-submenu-title:active {
+  background: none !important;
+}
+/* .ant-menu-item:active, .ant-menu-submenu-title:active {
+  background: #fbefff\\\;
+} */
+
+.ant-menu-inline.ant-menu-root .ant-menu-item, .ant-menu-inline.ant-menu-root .ant-menu-submenu-title {
+  padding-left: 14px !important;
+}
+
+/* .ant-menu-inline .ant-menu-item-group-list .ant-menu-submenu-title, .ant-menu-inline .ant-menu-submenu-title {
+  padding-right: 34px;
+  font-size: 14px ;
+  font-weight: 700;
+  color: #78338b;
+  border-bottom: 1px solid #ececec;
+} */
+.ant-menu-submenu-expand-icon, .ant-menu-submenu-arrow {
+  color: #78338b !important;
 }
